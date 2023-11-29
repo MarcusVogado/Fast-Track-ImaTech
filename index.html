@@ -9,11 +9,13 @@
     <link rel="stylesheet" href="src/bootstrap/bootstrap-icons/font/bootstrap-icons.css">
     <script src="src/bootstrap/js/bootstrap.bundle.js" defer></script>
     <script src="src/assets/Js/Main/index.js" defer></script>
+    <script src="src/assets/Js/Models/Task.js" defer></script>
+    <script src="src/assets/Js/Services/taskServices.js" defer></script>
 </head>
 <body>
     <header class="navbar navbar-dark bg-dark px-2">
         <div class="user__loggade">
-            <p>Olá, Marcus Vogado</p>
+            <p>Olá, <span id="userLoggadeName"></span></p>
         </div>
         <div class="logout__button">
             <button class="btn btn-dark">Sair</button>
@@ -23,17 +25,17 @@
         <section class="d-flex flex-column justify-content-center align-items-center task__form">
             <h1 class=" h1 text-center text-dark">Gerenciador de tarefas</h1>
             <div class="container__form">
-                <form class="d-flex flex-column aling-items-center task__form">
+                <form id="task__form-create" class="d-flex flex-column aling-items-center task__form">
                     <div class="form-group task__form-item">
                         <input type="text" class="form-control mb-3" id="taskTitle" placeholder="Tarefa">
                     </div>
-                    <div class="form-group d-flex  mb-2 gap-2">
-                        <input type="text" class="form-control mb-3 mr-2" id="dateStart" placeholder="Data início">
-                        <input type="password" class="form-control mb-3 mr-2" id="timeStart" placeholder="Hora início">
+                    <div class="form-group d-flex  mb-2 gap-2">                        
+                        <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control mb-3 mr-2" id="dateStart" placeholder="Data início">
+                        <input type="text" onfocus="(this.type='time')" onblur="(this.type='text')"class="form-control mb-3 mr-2" id="timeStart" placeholder="Hora início">
                     </div>
                     <div class="form-group d-flex mb-3 gap-2">
-                        <input type="text" class="form-control" id="dateEnd" placeholder="Data término">
-                        <input type="text" class="form-control" id="timeEnd" placeholder="Horário término">
+                        <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control" id="dateEnd" placeholder="Data término">
+                        <input type="text" onfocus="(this.type='time')" onblur="(this.type='text')" class="form-control" id="timeEnd" placeholder="Horário término">
                     </div>
                     <div class="form-group mb-3 gap-2">
                         <textarea class="form-control" id="description" rows="3" maxlength="200" placeholder="Descrição"></textarea>
@@ -43,9 +45,9 @@
             </div>
         </section>
         <section class="d-flex flex-column justify-content-center align-items-center w-100 task__list">
-            <div class="d-flex table__container table-responsive">
+            <div class="d-flex table__container table-responsive w-75">
                 <table class="table table-striped ">
-                    <thead>
+                    <thead class="fw-bold">
                         <tr>
                             <td>Tarefa</td>
                             <td>Início</td>
@@ -54,35 +56,35 @@
                             <td>Alterar</td>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr onclick="ModalTask()">
+                    <tbody id="list__task-body">
+                        <!-- <tr onclick="ModalTask()" class="task__row-table" data-toggle="modal" data-target="#exampleModal">
                             <td>Pagar conta de luz</td>
                             <td>18/11/2023 às 00:00</td>
                             <td>18/11/2023 às 23:59</td>
                             <td class="text-danger">Em Atraso</td>
-                            <td><button class="btn btn-warning">Alterar</button></td>
+                            <td><a href="editTask.html"><button class="btn btn-warning w-100">Alterar</button></a></td>
                         </tr>
-                        <tr onclick="ModalTask()">
+                        <tr onclick="ModalTask()" class="task__row-table" data-toggle="modal" data-target="#exampleModal">
                             <td>Festa de final de ano</td>
                             <td>20/12/2023 às 00:00</td>
                             <td>18/11/2023 às 23:59</td>
                             <td class="text-warning">Pendente</td>
-                            <td><button class="btn btn-warning">Alterar</button></td>
+                            <td> <a href="editTask.html"><button class="btn btn-warning w-100">Alterar</button></a></td>
                         </tr>
-                        <tr onclick="ModalTask()">
+                        <tr onclick="ModalTask()" class="task__row-table" data-toggle="modal" data-target="#exampleModal">
                             <td>Aula de Angular</td>
                             <td>18/11/2023 às 00:00</td>
                             <td>18/11/2023 às 23:59</td>
                             <td class="text-primary">Em Andamento</td>
-                            <td><button class="btn btn-warning">Alterar</button></td>
+                            <td><button class="btn btn-warning w-100">Alterar </button></td>
                         </tr>
-                        <tr class="task__row-table" data-toggle="modal" data-target="#exampleModal">
+                        <tr onclick="ModalTask()" class="task__row-table" data-toggle="modal" data-target="#exampleModal">
                             <td>Reunião com a MXM Sistemas</td>
                             <td>18/11/2023 às 00:00</td>
                             <td>18/11/2023 às 23:59</td>
                             <td class="text-success">Realizada</td>
-                            <td><button class="btn btn-warning">Alterar</button></td>
-                        </tr>
+                            <td><button class="btn btn-warning w-100">Alterar</button></td>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>

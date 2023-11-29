@@ -4,9 +4,10 @@ let userLogged = JSON.parse(localStorage.getItem('userLogged'));
 if(userLogged==null){
     window.location.href='login.html'
 }
+let userNameHeader = document.getElementById('userLoggadeName')
+userNameHeader.innerText = userLogged.name
 
 //Modal Task
-
 function ModalTask(){ 
     var target = document.querySelector('.task__row-table').getAttribute('data-target');   
     var modalElement = document.querySelector(target);
