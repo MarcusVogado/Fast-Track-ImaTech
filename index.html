@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ímã-Tasks</title>
+    <link rel="stylesheet" href="src/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="src/assets/Css/indexStyle.css">
+    <link rel="stylesheet" href="src/bootstrap/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="src/bootstrap/js/bootstrap.bundle.js" defer></script>
+    <script src="src/assets/Js/Main/index.js" defer></script>
+</head>
+<body>
+    <header class="navbar navbar-dark bg-dark px-2">
+        <div class="user__loggade">
+            <p>Olá, Marcus Vogado</p>
+        </div>
+        <div class="logout__button">
+            <button class="btn btn-dark">Sair</button>
+        </div>
+    </header>
+    <main class="d-flex flex-column main__container gap-5 mt-5">
+        <section class="d-flex flex-column justify-content-center align-items-center task__form">
+            <h1 class=" h1 text-center text-dark">Gerenciador de tarefas</h1>
+            <div class="container__form">
+                <form class="d-flex flex-column aling-items-center task__form">
+                    <div class="form-group task__form-item">
+                        <input type="text" class="form-control mb-3" id="taskTitle" placeholder="Tarefa">
+                    </div>
+                    <div class="form-group d-flex  mb-2 gap-2">
+                        <input type="text" class="form-control mb-3 mr-2" id="dateStart" placeholder="Data início">
+                        <input type="password" class="form-control mb-3 mr-2" id="timeStart" placeholder="Hora início">
+                    </div>
+                    <div class="form-group d-flex mb-3 gap-2">
+                        <input type="text" class="form-control" id="dateEnd" placeholder="Data término">
+                        <input type="text" class="form-control" id="timeEnd" placeholder="Horário término">
+                    </div>
+                    <div class="form-group mb-3 gap-2">
+                        <textarea class="form-control" id="description" rows="3" maxlength="200" placeholder="Descrição"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary align-self-center">Criar Tarefa</button>                   
+                </form>
+            </div>
+        </section>
+        <section class="d-flex flex-column justify-content-center align-items-center w-100 task__list">
+            <div class="d-flex table__container table-responsive">
+                <table class="table table-striped ">
+                    <thead>
+                        <tr>
+                            <td>Tarefa</td>
+                            <td>Início</td>
+                            <td>Término</td>
+                            <td>Status</td>
+                            <td>Alterar</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr onclick="ModalTask()">
+                            <td>Pagar conta de luz</td>
+                            <td>18/11/2023 às 00:00</td>
+                            <td>18/11/2023 às 23:59</td>
+                            <td class="text-danger">Em Atraso</td>
+                            <td><button class="btn btn-warning">Alterar</button></td>
+                        </tr>
+                        <tr onclick="ModalTask()">
+                            <td>Festa de final de ano</td>
+                            <td>20/12/2023 às 00:00</td>
+                            <td>18/11/2023 às 23:59</td>
+                            <td class="text-warning">Pendente</td>
+                            <td><button class="btn btn-warning">Alterar</button></td>
+                        </tr>
+                        <tr onclick="ModalTask()">
+                            <td>Aula de Angular</td>
+                            <td>18/11/2023 às 00:00</td>
+                            <td>18/11/2023 às 23:59</td>
+                            <td class="text-primary">Em Andamento</td>
+                            <td><button class="btn btn-warning">Alterar</button></td>
+                        </tr>
+                        <tr class="task__row-table" data-toggle="modal" data-target="#exampleModal">
+                            <td>Reunião com a MXM Sistemas</td>
+                            <td>18/11/2023 às 00:00</td>
+                            <td>18/11/2023 às 23:59</td>
+                            <td class="text-success">Realizada</td>
+                            <td><button class="btn btn-warning">Alterar</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-dark" id="exampleModalLabel">Pagar Conta de luz</h5>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center text-dark">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam nisi tempore corrupti! Non
+                        placeat, porro cupiditate id repudiandae eligendi, reiciendis quasi blanditiis totam quidem
+                        dolores quaerat doloribus error veniam.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="close btn btn-secondary " data-dismiss="modal" aria-label="Close">
+                        Fechar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <footer class="d-flex justify-content-between align-items-center py-3 my-4 border-top">
+          <div class="col-md-6 d-flex align-items-center">            
+            <span class="mb-3 mb-md-0 text-body-secondary">© 2023 Marcus Vogado - Ímã Tech SharpCorders - MXM Sistemas</span>
+          </div>      
+          <ul class="nav col-md- justify-content-end mr-5 list-unstyled d-flex">
+            <li class="ms-3"><a class="text-body-secondary" href="https://www.linkedin.com/in/marcus-vogado/" target="_blank"><i class="bi-linkedin"></i></a></li>
+            <li class="ms-3"><a class="text-body-secondary" href="https://github.com/marcusvogado" target="_blank"><i class="bi-github"></i></use></svg></a></li>
+            <li class="ms-3"><a class="text-body-secondary" href="https://www.instagram.com/marcus.vogado/" target="_blank"><i class="bi-instagram"></i></use></svg></a></use></svg></a></li>
+          </ul>
+        </footer>
+      </div>
+</body>
+
+</html>

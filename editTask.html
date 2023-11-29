@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ímã-Editar</title>
+    <link rel="stylesheet" href="src/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="src/assets/Css/editTaskStyle.css">
+    <script src="src/bootstrap/js/bootstrap.bundle.js" defer></script>
+    <script src="src/assets/Js/Main/index.js" defer></script>
+</head>
+
+<body>
+    <main class="d-flex flex-column  main__container w-100 gap-5 mt-5">
+        <section class="d-flex flex-column justify-content-center align-items-center">
+            <h1 class=" h1 text-center text-dark">Gerenciador de tarefas</h1>
+            <div class="container__form">
+                <form class="d-flex flex-column aling-items-center">
+                    <div class="form-group task__form-item">
+                        <input type="text" class="form-control mb-3" id="taskTitle" placeholder="Tarefa">
+                    </div>
+                    <div class="form-group d-flex  mb-2 gap-2">
+                        <input type="text" class="form-control mb-3 mr-2" id="dateStart" placeholder="Data início">
+                        <input type="password" class="form-control mb-3 mr-2" id="timeStart" placeholder="Hora início">
+                    </div>
+                    <div class="form-group d-flex mb-3 gap-2">
+                        <input type="text" class="form-control" id="dateEnd" placeholder="Data término">
+                        <input type="text" class="form-control" id="timeEnd" placeholder="Horário término">
+                    </div>
+                    <div class="form-group mb-3 gap-2">
+                        <textarea class="form-control" id="description" rows="3" maxlength="200" placeholder="Descrição"></textarea>
+                    </div>
+                    <div class="d-flex flex-wrap justify-content-center form-group gap-2 w-100">
+                        <button type="submit" class="btn btn-primary align-self-center">Alterar tarefa</button>
+                        <button type="submit" class="btn btn-danger align-self-center">Excluir tarefa</button>
+                        <button type="submit" class="btn btn-success align-self-center">Marcar como realizada</button>
+                        <a href="index.html" class="btn btn-secondary" target="_self">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </section>
+</body>
+
+</html>
