@@ -7,11 +7,11 @@ document.getElementById('userRegistrationForm').addEventListener('submit', funct
     let userPassword = document.getElementById('registrationPassword').value;
     let userRegistration = new User(userName, userEmail, userPassword);
     let userCheckExists = checkUserExists(userRegistration);
-    if (userCheckExists == null) {
-        localStorage.setItem('userLogged', JSON.stringify(userRegistration))
+    if (userCheckExists == null) {        
         const listUsers = JSON.parse(localStorage.getItem('listUsers')) || [];
-        userRegistration.id = listUsers.lenght + 1
+        userRegistration.id = listUsers.length + 1
         listUsers.push(userRegistration);
+        localStorage.setItem('userLogged', JSON.stringify(userRegistration))
         localStorage.setItem('listUsers', JSON.stringify(listUsers))
         document.getElementById('alertUserCreate').classList.add('show');
         setTimeout(function () {

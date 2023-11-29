@@ -18,7 +18,7 @@
             <p>Olá, <span id="userLoggadeName"></span></p>
         </div>
         <div class="logout__button">
-            <button class="btn btn-dark">Sair</button>
+            <button onclick="userLogout()" class="btn btn-dark">Sair</button>
         </div>
     </header>
     <main class="d-flex flex-column main__container gap-5 mt-5">
@@ -47,14 +47,12 @@
         <section class="d-flex flex-column justify-content-center align-items-center w-100 task__list">
             <div class="d-flex table__container table-responsive w-75">
                 <table class="table table-striped ">
-                    <thead class="fw-bold">
-                        <tr>
-                            <td>Tarefa</td>
-                            <td>Início</td>
-                            <td>Término</td>
-                            <td>Status</td>
-                            <td>Alterar</td>
-                        </tr>
+                    <thead id="list__task-head" class="fw-bold">
+                      <tr>
+                        <td class="d-flex justify-content-center ">
+                            <h3 class="h3 text-center text-dark w-75">Crie sua Primeira Tarefa</h3>
+                        </td>
+                      </tr>                        
                     </thead>
                     <tbody id="list__task-body">
                         <!-- <tr onclick="ModalTask()" class="task__row-table" data-toggle="modal" data-target="#exampleModal">

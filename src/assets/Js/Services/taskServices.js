@@ -2,7 +2,6 @@ let user = JSON.parse(localStorage.getItem('userLogged'));
 let listBody = document.getElementById('list__task-body')
 listBody.innerHTML = ''
 RenderListTasks(user.id)
-
 //Create Task
 
 document.getElementById('task__form-create').addEventListener('submit', (event) => {
@@ -26,32 +25,43 @@ document.getElementById('task__form-create').addEventListener('submit', (event) 
 
 
 function RenderListTasks(userID) {
+
     let listBody = document.getElementById('list__task-body')
     let listTasks = JSON.parse(localStorage.getItem('listTask')) || []
     let userTasks = listTasks.filter(task => task.userID == userID)
     if (userTasks.length > 0) {
+        let listHead = document.getElementById('list__task-head')
+        listHead.innerHTML = `
+    <tr>
+    <td>Tarefa</td>
+    <td>Início</td>
+    <td>Término</td>
+    <td>Status</td>
+    <td>Alterar</td>
+    </tr>
+    `
         userTasks.map((task) => {
             listBody.innerHTML +=
                 `
-        <tr onclick="ModalTask()" class="task__row-table" data-toggle="modal" data-target="#exampleModal">
+        <tr data-id="${task.id}" onclick="ModalTask()" class="task__row-table" data-toggle="modal" data-target="#exampleModal">
         <td>${task.title}</td>
-        <td>${(()=>{ 
-            const dateStart= new Date(task.dateStart)
-            const formatter = Intl.DateTimeFormat('pt-BR',{
-                timeZone:'UTC',
-                dateStyle:'short'
-            });
-            return formatter.format(dateStart)
-        })()
-        } às ${task.timeStart}</td>
-        <td>${(()=>{ 
-            const dateStart= new Date(task.dateEnd)
-            const formatter = Intl.DateTimeFormat('pt-BR',{
-                timeZone:'UTC',
-                dateStyle:'short'
-            });
-            return formatter.format(dateStart)
-        })()} às ${task.timeEnd}</td>
+        <td>${(() => {
+                    const dateStart = new Date(task.dateStart)
+                    const formatter = Intl.DateTimeFormat('pt-BR', {
+                        timeZone: 'UTC',
+                        dateStyle: 'short'
+                    });
+                    return formatter.format(dateStart)
+                })()
+                } às ${task.timeStart}</td>
+        <td>${(() => {
+                    const dateStart = new Date(task.dateEnd)
+                    const formatter = Intl.DateTimeFormat('pt-BR', {
+                        timeZone: 'UTC',
+                        dateStyle: 'short'
+                    });
+                    return formatter.format(dateStart)
+                })()} às ${task.timeEnd}</td>
         <td class="${(() => {
                     let dateStart = new Date(`${task.dateStart}T${task.timeStart}`);
                     let dateEnd = new Date(`${task.dateEnd}T${task.timeEnd}`);
@@ -97,3 +107,19 @@ function RenderListTasks(userID) {
     }
 }
 
+
+formatar_data = (d) =>{
+
+    const date = new Date(d); 
+
+    const formatter = Intl.DateTimeFormat('pt-BR', {
+				timeZone: 'UTC',
+        dateStyle: "short"
+    });
+
+    return formatter.format(date);
+}
+
+
+let teste = formatar_data('2023-11-29')
+console.log(teste)
