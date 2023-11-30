@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
     <script src="src/assets/Js/Models/Task.js" defer></script>
     <script src="src/assets/Js/Services/taskServices.js" defer></script>
 </head>
+
 <body>
     <header class="navbar navbar-dark bg-dark px-2">
         <div class="user__loggade">
@@ -27,20 +29,25 @@
             <div class="container__form">
                 <form id="task__form-create" class="d-flex flex-column aling-items-center task__form">
                     <div class="form-group task__form-item">
-                        <input type="text" class="form-control mb-3" id="taskTitle" placeholder="Tarefa">
+                        <input type="text" class="form-control mb-3" id="taskTitle" placeholder="Tarefa" required>
                     </div>
-                    <div class="form-group d-flex  mb-2 gap-2">                        
-                        <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control mb-3 mr-2" id="dateStart" placeholder="Data início">
-                        <input type="text" onfocus="(this.type='time')" onblur="(this.type='text')"class="form-control mb-3 mr-2" id="timeStart" placeholder="Hora início">
+                    <div class="form-group d-flex  mb-2 gap-2">
+                        <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')"
+                            class="form-control mb-3 mr-2" id="dateStart" placeholder="Data início" required>
+                        <input type="text" onfocus="(this.type='time')" onblur="(this.type='text')"
+                            class="form-control mb-3 mr-2" id="timeStart" placeholder="Hora início" required>
                     </div>
                     <div class="form-group d-flex mb-3 gap-2">
-                        <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control" id="dateEnd" placeholder="Data término">
-                        <input type="text" onfocus="(this.type='time')" onblur="(this.type='text')" class="form-control" id="timeEnd" placeholder="Horário término">
+                        <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control"
+                            id="dateEnd" placeholder="Data término" required>
+                        <input type="text" onfocus="(this.type='time')" onblur="(this.type='text')" class="form-control"
+                            id="timeEnd" placeholder="Horário término" required>
                     </div>
                     <div class="form-group mb-3 gap-2">
-                        <textarea class="form-control" id="description" rows="3" maxlength="200" placeholder="Descrição"></textarea>
+                        <textarea class="form-control" id="description" rows="3" maxlength="200" placeholder="Descrição"
+                            required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary align-self-center">Criar Tarefa</button>                   
+                    <button type="submit" class="btn btn-primary align-self-center">Criar Tarefa</button>
                 </form>
             </div>
         </section>
@@ -48,11 +55,11 @@
             <div class="d-flex table__container table-responsive w-75">
                 <table class="table table-striped ">
                     <thead id="list__task-head" class="fw-bold">
-                      <tr>
-                        <td class="d-flex justify-content-center ">
-                            <h3 class="h3 text-center text-dark w-75">Crie sua Primeira Tarefa</h3>
-                        </td>
-                      </tr>                        
+                        <tr>
+                            <td class="d-flex justify-content-center ">
+                                <h3 class="h3 text-center text-dark w-75">Crie sua Primeira Tarefa</h3>
+                            </td>
+                        </tr>
                     </thead>
                     <tbody id="list__task-body">
                         <!-- <tr onclick="ModalTask()" class="task__row-table" data-toggle="modal" data-target="#exampleModal">
@@ -89,19 +96,15 @@
         </section>
     </main>
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal show" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title text-dark" id="exampleModalLabel">Pagar Conta de luz</h5>
+                    <h5 class="modal-title text-dark" id="exampleModalLabel"></h5>
                 </div>
-                <div class="modal-body">
-                    <p class="text-center text-dark">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam nisi tempore corrupti! Non
-                        placeat, porro cupiditate id repudiandae eligendi, reiciendis quasi blanditiis totam quidem
-                        dolores quaerat doloribus error veniam.
-                    </p>
+                <div id="modal__body" class="modal-body">
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="close btn btn-secondary " data-dismiss="modal" aria-label="Close">
@@ -111,18 +114,22 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container fixed-bottom">
         <footer class="d-flex justify-content-between align-items-center py-3 my-4 border-top">
-          <div class="col-md-6 d-flex align-items-center">            
-            <span class="mb-3 mb-md-0 text-body-secondary">© 2023 Marcus Vogado - Ímã Tech SharpCorders - MXM Sistemas</span>
-          </div>      
-          <ul class="nav col-md- justify-content-end mr-5 list-unstyled d-flex">
-            <li class="ms-3"><a class="text-body-secondary" href="https://www.linkedin.com/in/marcus-vogado/" target="_blank"><i class="bi-linkedin"></i></a></li>
-            <li class="ms-3"><a class="text-body-secondary" href="https://github.com/marcusvogado" target="_blank"><i class="bi-github"></i></use></svg></a></li>
-            <li class="ms-3"><a class="text-body-secondary" href="https://www.instagram.com/marcus.vogado/" target="_blank"><i class="bi-instagram"></i></use></svg></a></use></svg></a></li>
-          </ul>
+            <div class="col-md-6 d-flex align-items-center">
+                <span class="mb-3 mb-md-0 text-body-secondary lh-sm-1">© 2023 Marcus Vogado - Ímã Tech SharpCorders - MXM
+                    Sistemas</span>
+            </div>
+            <ul class="nav col-md-3 justify-content-end mr-5 list-unstyled d-flex">
+                <li class="ms-3"><a class="text-body-secondary" href="https://www.linkedin.com/in/marcus-vogado/"
+                        target="_blank"><i class="bi-linkedin"></i></a></li>
+                <li class="ms-3"><a class="text-body-secondary" href="https://github.com/marcusvogado"
+                        target="_blank"><i class="bi-github"></i></use></svg></a></li>
+                <li class="ms-3"><a class="text-body-secondary" href="https://www.instagram.com/marcus.vogado/"
+                        target="_blank"><i class="bi-instagram"></i></use></svg></a></use></svg></a></li>
+            </ul>
         </footer>
-      </div>
+    </div>
 </body>
 
 </html>

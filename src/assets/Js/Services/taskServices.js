@@ -43,8 +43,8 @@ function RenderListTasks(userID) {
         userTasks.map((task) => {
             listBody.innerHTML +=
                 `
-        <tr data-id="${task.id}" onclick="ModalTask()" class="task__row-table" data-toggle="modal" data-target="#exampleModal">
-        <td>${task.title}</td>
+        <tr class="task__row-table" data-toggle="modal" data-target="#exampleModal">
+        <td data-id="${task.id}">${task.title}</td>
         <td>${(() => {
                     const dateStart = new Date(task.dateStart)
                     const formatter = Intl.DateTimeFormat('pt-BR', {
@@ -107,19 +107,3 @@ function RenderListTasks(userID) {
     }
 }
 
-
-formatar_data = (d) =>{
-
-    const date = new Date(d); 
-
-    const formatter = Intl.DateTimeFormat('pt-BR', {
-				timeZone: 'UTC',
-        dateStyle: "short"
-    });
-
-    return formatter.format(date);
-}
-
-
-let teste = formatar_data('2023-11-29')
-console.log(teste)
