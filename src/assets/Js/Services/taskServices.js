@@ -2,9 +2,11 @@ let user = JSON.parse(localStorage.getItem('userLogged'));
 let listBody = document.getElementById('list__task-body')
 listBody.innerHTML = ''
 RenderListTasks(user.id)
-//Create Task
 
+
+//Create Task
 document.getElementById('task__form-create').addEventListener('submit', (event) => {
+    listBody.innerHTML = ''
     event.preventDefault();
     const user = JSON.parse(localStorage.getItem('userLogged'));
     let task = new Task();
@@ -23,9 +25,8 @@ document.getElementById('task__form-create').addEventListener('submit', (event) 
     RenderListTasks(user.id)
 })
 
-
-function RenderListTasks(userID) {
-
+//Get Tasks to Render
+function RenderListTasks(userID) {    
     let listBody = document.getElementById('list__task-body')
     let listTasks = JSON.parse(localStorage.getItem('listTask')) || []
     let userTasks = listTasks.filter(task => task.userID == userID)
@@ -43,8 +44,8 @@ function RenderListTasks(userID) {
         userTasks.map((task) => {
             listBody.innerHTML +=
                 `
-        <tr class="task__row-table" data-toggle="modal" data-target="#exampleModal">
-        <td data-id="${task.id}">${task.title}</td>
+        <tr  data-id="${task.id}" class="task__row-table" data-toggle="modal" data-target="#exampleModal">
+        <td>${task.title}</td>
         <td>${(() => {
                     const dateStart = new Date(task.dateStart)
                     const formatter = Intl.DateTimeFormat('pt-BR', {

@@ -12,30 +12,44 @@ function userLogout() {
     window.location.href = 'login.html'
 }
 
+//Abrir Modal 
 document.querySelector('#list__task-body').addEventListener('click', (event) => {
-    let taskId = Number(event.target.dataset.id);
-    let tasks = JSON.parse(localStorage.getItem('listTask'));
-    let taskSelectd = tasks.find(task => task.id == taskId);
-    
-    let modalTitle = document.getElementById('exampleModalLabel');
-    modalTitle.innerText= taskSelectd.title;
-    let modalBody = document.getElementById('modal__body');
-    modalBody.innerHTML = `
-    <p class="text-dark">${taskSelectd.description}</p>
-    `
+    //Achando o elemento que Acionou o evento de Click e verificando se ele é uma TD que está dentro de uma tr
+    // O método closesst pega o nome do elemento pai que é uma Tr assim posso pegar o id da tarefa e fazer a busca completa dela na lista de tarefas
+    let targetElement = event.target;   
+    if (targetElement.tagName === 'TD') {      
+        let taskRow = targetElement.closest('tr');       
+        let taskId = Number(taskRow.dataset.id);      
+        let tasks = JSON.parse(localStorage.getItem('listTask'));      
+        let taskSelected = tasks.find(task => task.id === taskId);      
+        let modalTitle = document.getElementById('exampleModalLabel');
+        modalTitle.innerText = taskSelected.title;
+        let modalBody = document.getElementById('modal__body');
+        modalBody.innerHTML = `
+            <p class="text-dark">${taskSelected.description}</p>
+        `;     
+        //Acionando o Meu Modal
+        var target = taskRow.getAttribute('data-target');     
+        var modalElement = document.querySelector(target);      
+        var modal = new bootstrap.Modal(modalElement);       
+        var closeButton = modalElement.querySelector('.close');
+        closeButton.addEventListener('click', function () {
+            modal.hide();
+        });       
+        modal.show();
+    }
+});
 
-    var target = document.querySelector('.task__row-table').getAttribute('data-target');
-    var modalElement = document.querySelector(target);
-    var modal = new bootstrap.Modal(modalElement);
-
-    var closeButton = modalElement.querySelector('.close');
-    closeButton.addEventListener('click', function () {
-        modal.hide();
-        document.body.classList.remove('modal-open');
-        modalElement.classList.remove('show');
-    });
-    modal.show();
-})
-
-
+//Salvando task a ser enviada para ser alterada na tela editTask
+document.querySelector('#list__task-body').addEventListener('click', (event) => {
+    let targetElement = event.target;    
+    if (targetElement.tagName === 'BUTTON' && targetElement.closest('td')) {        
+        let tdElement = targetElement.closest('td');        
+        let trElement = tdElement.closest('tr');       
+        let taskId = Number(trElement.dataset.id);
+        let tasks = JSON.parse(localStorage.getItem('listTask'));      
+        let taskSelected = tasks.find(task => task.id === taskId);
+        localStorage.setItem('alterTaks',JSON.stringify(taskSelected))
+    }
+});
 

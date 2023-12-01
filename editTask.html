@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="src/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="src/assets/Css/editTaskStyle.css">
     <script src="src/bootstrap/js/bootstrap.bundle.js" defer></script>
-    <script src="src/assets/Js/Main/index.js" defer></script>
+    <script src="src/assets/Js/Main/editTask.js" defer></script>
 </head>
 
 <body>
@@ -21,25 +21,42 @@
                         <input type="text" class="form-control mb-3" id="taskTitle" placeholder="Tarefa">
                     </div>
                     <div class="form-group d-flex  mb-2 gap-2">
-                        <input type="text" class="form-control mb-3 mr-2" id="dateStart" placeholder="Data início">
-                        <input type="password" class="form-control mb-3 mr-2" id="timeStart" placeholder="Hora início">
+                        <input type="date" class="form-control mb-3 mr-2" id="dateStart" placeholder="Data início">
+                        <input type="time" class="form-control mb-3 mr-2" id="timeStart" placeholder="Hora início">
                     </div>
                     <div class="form-group d-flex mb-3 gap-2">
-                        <input type="text" class="form-control" id="dateEnd" placeholder="Data término">
-                        <input type="text" class="form-control" id="timeEnd" placeholder="Horário término">
+                        <input type="date" class="form-control" id="dateEnd" placeholder="Data término">
+                        <input type="time" class="form-control" id="timeEnd" placeholder="Horário término">
                     </div>
                     <div class="form-group mb-3 gap-2">
-                        <textarea class="form-control" id="description" rows="3" maxlength="200" placeholder="Descrição"></textarea>
+                        <textarea class="form-control" id="description" rows="3" maxlength="200"
+                            placeholder="Descrição"></textarea>
                     </div>
                     <div class="d-flex flex-wrap justify-content-center form-group gap-2 w-100">
-                        <button type="submit" class="btn btn-primary align-self-center">Alterar tarefa</button>
-                        <button type="submit" class="btn btn-danger align-self-center">Excluir tarefa</button>
-                        <button type="submit" class="btn btn-success align-self-center">Marcar como realizada</button>
+                        <button id="alterTaskButton" type="submit" class="btn btn-primary align-self-center">Alterar
+                            tarefa</button>
+                        <button id="deleteTaskButton" type="submit" class="btn btn-danger align-self-center">Excluir
+                            tarefa</button>
+                        <button id="alterStatusTaksButton" type="submit" class="btn btn-success align-self-center">Marcar como realizada</button>
                         <a href="index.html" class="btn btn-secondary" target="_self">Cancelar</a>
                     </div>
                 </form>
             </div>
         </section>
+        <div id="confirmDeleteTaks" class="alert alert-danger  align-items-center fade  align-self-center " role="alert">
+            <h3 class=" h3 text-center text-dark">Deseja Realmente Excluir a Tarefa?</h3>
+            <div id="confirmDeleteButtons" class=" w-100 d-flex justify-content-around">                
+                <button data-id="1" class="btn btn-danger">SIM</button>
+                <button data-id="0" class="btn btn-secondary">NÃO</button>
+            </div>
+        </div>
+        <div id="alertTasksDelete" class="alert  alert-success fade alert-task alert-login align-self-center " role="alert">
+            Tarefa Removida Com sucesso
+        </div>
+        <div id="alertTaskUpdate" class="alert  alert-success fade alert-task align-self-center " role="alert">
+            Tarefa Atualizada com Sucesso.
+        </div>
+    </main>
 </body>
 
 </html>
