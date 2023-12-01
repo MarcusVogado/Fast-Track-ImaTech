@@ -6,8 +6,7 @@ RenderListTasks(user.id)
 
 //Create Task
 document.getElementById('task__form-create').addEventListener('submit', (event) => {
-    listBody.innerHTML = ''
-    event.preventDefault();
+    listBody.innerHTML = ''    
     const user = JSON.parse(localStorage.getItem('userLogged'));
     let task = new Task();
     const listTask = JSON.parse(localStorage.getItem('listTask')) || [];

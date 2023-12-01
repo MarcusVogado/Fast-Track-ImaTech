@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    <!-- Header -->
     <header class="navbar navbar-dark bg-dark px-2">
         <div class="user__loggade">
             <p>Olá, <span id="userLoggadeName"></span></p>
@@ -23,6 +24,7 @@
             <button onclick="userLogout()" class="btn btn-dark">Sair</button>
         </div>
     </header>
+    <!-- Main -->
     <main class="d-flex flex-column main__container gap-5 mt-5">
         <section class="d-flex flex-column justify-content-center align-items-center task__form">
             <h1 class=" h1 text-center text-dark">Gerenciador de tarefas</h1>
@@ -62,39 +64,26 @@
                         </tr>
                     </thead>
                     <tbody id="list__task-body">
-                        <!-- <tr onclick="ModalTask()" class="task__row-table" data-toggle="modal" data-target="#exampleModal">
-                            <td>Pagar conta de luz</td>
-                            <td>18/11/2023 às 00:00</td>
-                            <td>18/11/2023 às 23:59</td>
-                            <td class="text-danger">Em Atraso</td>
-                            <td><a href="editTask.html"><button class="btn btn-warning w-100">Alterar</button></a></td>
-                        </tr>
-                        <tr onclick="ModalTask()" class="task__row-table" data-toggle="modal" data-target="#exampleModal">
-                            <td>Festa de final de ano</td>
-                            <td>20/12/2023 às 00:00</td>
-                            <td>18/11/2023 às 23:59</td>
-                            <td class="text-warning">Pendente</td>
-                            <td> <a href="editTask.html"><button class="btn btn-warning w-100">Alterar</button></a></td>
-                        </tr>
-                        <tr onclick="ModalTask()" class="task__row-table" data-toggle="modal" data-target="#exampleModal">
-                            <td>Aula de Angular</td>
-                            <td>18/11/2023 às 00:00</td>
-                            <td>18/11/2023 às 23:59</td>
-                            <td class="text-primary">Em Andamento</td>
-                            <td><button class="btn btn-warning w-100">Alterar </button></td>
-                        </tr>
-                        <tr onclick="ModalTask()" class="task__row-table" data-toggle="modal" data-target="#exampleModal">
-                            <td>Reunião com a MXM Sistemas</td>
-                            <td>18/11/2023 às 00:00</td>
-                            <td>18/11/2023 às 23:59</td>
-                            <td class="text-success">Realizada</td>
-                            <td><button class="btn btn-warning w-100">Alterar</button></td>
-                        </tr> -->
                     </tbody>
                 </table>
             </div>
         </section>
     </main>
+    <!-- Footer -->
+    <footer class="container fixed-bottom d-flex justify-content-between align-items-center py-3 my-4 border-top">
+        <div class=" d-flex align-items-center">
+            <span class="mb-3 mb-md-0 text-body-secondary lh-sm-1">© 2023 Marcus Vogado - Ímã Tech SharpCorders - MXM
+                Sistemas</span>
+        </div>
+        <ul class="nav gap-2 w-50 flex-nowrap">
+            <li class="ms-3"><a class="text-body-secondary" href="https://www.linkedin.com/in/marcus-vogado/"
+                    target="_blank"><i class="bi-linkedin"></i></a></li>
+            <li class="ms-3"><a class="text-body-secondary" href="https://github.com/marcusvogado" target="_blank"><i
+                        class="bi-github"></i></use></svg></a></li>
+            <li class="ms-3"><a class="text-body-secondary" href="https://www.instagram.com/marcus.vogado/"
+                    target="_blank"><i class="bi-instagram"></i></use></svg></a></use></svg></a></li>
+        </ul>
+    </footer>
     <!-- Modal -->
     <div class="modal show" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -113,22 +102,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container fixed-bottom">
-        <footer class="d-flex justify-content-between align-items-center py-3 my-4 border-top">
-            <div class="col-md-6 d-flex align-items-center">
-                <span class="mb-3 mb-md-0 text-body-secondary lh-sm-1">© 2023 Marcus Vogado - Ímã Tech SharpCorders - MXM
-                    Sistemas</span>
-            </div>
-            <ul class="nav col-md-3 justify-content-end mr-5 list-unstyled d-flex">
-                <li class="ms-3"><a class="text-body-secondary" href="https://www.linkedin.com/in/marcus-vogado/"
-                        target="_blank"><i class="bi-linkedin"></i></a></li>
-                <li class="ms-3"><a class="text-body-secondary" href="https://github.com/marcusvogado"
-                        target="_blank"><i class="bi-github"></i></use></svg></a></li>
-                <li class="ms-3"><a class="text-body-secondary" href="https://www.instagram.com/marcus.vogado/"
-                        target="_blank"><i class="bi-instagram"></i></use></svg></a></use></svg></a></li>
-            </ul>
-        </footer>
     </div>
 </body>
 
