@@ -100,7 +100,7 @@ function RenderListTasks(userID) {
 
                 })()}
         </td>
-        <td><a href="editTask.html"><button class="btn btn-warning w-100">Alterar</button></a></td>
+        <td><a href="edit-task.html"><button class="btn btn-warning w-100">Alterar</button></a></td>
         </tr>
         `
         })
