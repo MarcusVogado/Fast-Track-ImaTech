@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Imã-Tasks-Login</title>´
+    <title>Imã-Tasks-Login</title>
     <link rel="stylesheet" href="src/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="src/assets/Css/login-style.css">
     <script src="src/bootstrap/js/bootstrap.bundle.js" defer></script>
     <script src="src/assets/Js/Models/User.js" defer></script>
     <script src="src/assets/Js/Main/login.js" defer></script>
-    <script src="src/assets/Js/Services/loginServices.js" defer></script>
-    <script src="src/assets/Js/Services/registrationServices.js" defer></script>
+    <script src="src/assets/Js/Services/login-services.js" defer></script>
+    <script src="src/assets/Js/Services/user-services.js" defer></script>
+    <script src="src/assets/Js/Main/dark-mode-settings.js" defer></script>
 </head>
-
 <body>
+    <input type="checkbox" class="dark-mod-toggle" id="dark-mode-toggle">
+    <label class="label-dark-mode align-self-start p-0 m-3" for="dark-mode-toggle"></label>    
     <main class="container">
         <section class="container__image">
             <div class="image-content">
-                <img class="image-item" src="src/assets/img/Checklist.jpg" alt="">
+                <img class="image-item" src="src/assets/img/Checklist.jpg" alt="Um robô ">
             </div>
         </section>
         <section class="container__forms">
+            <h1 class="text-center"><span class="ima-title">Ímã</span> <span class="ima-todo">To-do</span></h1>
             <div class="content__login-form">
                 <h2 class="title-form">Acesse sua conta:</h2>
                 <form id="userLoginForm" class="form-login d-flex-colunm">

@@ -2,8 +2,6 @@ let user = JSON.parse(localStorage.getItem('userLogged'));
 let listBody = document.getElementById('list__task-body')
 listBody.innerHTML = ''
 RenderListTasks(user.id)
-
-
 //Create Task
 document.getElementById('task__form-create').addEventListener('submit', (event) => {
     listBody.innerHTML = ''    

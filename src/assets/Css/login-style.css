@@ -13,13 +13,15 @@ body {
     align-items: center;
     gap: 30px;
     padding: 30px;
-    box-shadow: 2px 2px 16px rgb(87, 86, 86);
+    box-shadow: 2px 4px 30px rgb(87, 86, 86);
     border-radius: 3px;
+    box-sizing: border-box;
 }
 
 .container__image {
     width: 60%;
     height: 100%;
+    box-sizing: border-box;
 }
 
 .image-content {
@@ -27,8 +29,32 @@ body {
     height: 100%;
 }
 
+.image-item {
+
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+    box-shadow: 0px 1px 20px rgb(49, 48, 48);
+}
+
+.ima-title {
+    font-family: Luckiest;
+    letter-spacing: 2px;
+    font-size: 2rem;
+    color: #0d6efd;
+
+}
+
+.ima-todo {
+    font-family: Luckiest;
+    letter-spacing: 2px;
+    font-size: 2rem;
+    color: #dc3545;
+}
+
 .container__forms {
     width: 50%;
+
 }
 
 .container__forms {
@@ -45,20 +71,31 @@ body {
 }
 
 .alert-login {
-    display: block;
+    display: none;   
     position: fixed;
     top: 10px;
 }
+.open{
+    display: block;
+}
+
 
 @media screen and (max-width:700px) {
-  
+
+    body {
+        margin:10px 0px;
+        flex-direction: column;
+        height: 100%;
+        margin-top: 0px;
+        gap: 20px;
+    }
+
     .container {
         justify-content: center;
         flex-direction: column-reverse;
         align-items: center;
         padding: 10px;
-        width: 95%;
-        height: 95%;
+        width: 90%;
     }
 
     .container__image {
@@ -70,4 +107,44 @@ body {
         width: 100%;
         height: 100%;
     }
+}
+
+.label-dark-mode {
+    width: 90px;
+    height: 40px;
+    position: relative;       
+    display: block;
+    background-color: #ebebeb;
+    border-radius: 200px;
+    box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4), inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.label-dark-mode:after {
+    content: "";
+    width: 30px;
+    height:30px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background: linear-gradient(180deg, #ffcc89, #d8860b);
+    border-radius: 180px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+.dark-mod-toggle {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+.dark-mod-toggle:checked+.label-dark-mode {
+    background: #242424;
+}
+.dark-mod-toggle:checked+.label-dark-mode:after{
+    left: 85px;
+    transform: translateX(-100%);
+    background: linear-gradient(180deg,#777,#3a3a3a);
 }

@@ -1,5 +1,14 @@
 let task = JSON.parse(localStorage.getItem('alterTaks'))
 setTaskToForm()
+let userLogged = JSON.parse(localStorage.getItem('userLogged'));
+let userNameHeader = document.getElementById('userLoggadeName')
+userNameHeader.innerText = userLogged.name
+//Logout
+function userLogout() {
+    localStorage.removeItem('userLogged')
+    window.location.href = 'login.html'
+}
+
 function setTaskToForm() {
     document.getElementById('taskTitle').value = task.title
     document.getElementById('dateStart').value = task.dateStart
@@ -32,7 +41,6 @@ function setTaskToForm() {
         `
 
     }
-
 
 }
 

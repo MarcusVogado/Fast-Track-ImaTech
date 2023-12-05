@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,22 +11,27 @@
     <script src="src/bootstrap/js/bootstrap.bundle.js" defer></script>
     <script src="src/assets/Js/Main/index.js" defer></script>
     <script src="src/assets/Js/Models/Task.js" defer></script>
-    <script src="src/assets/Js/Services/taskServices.js" defer></script>
+    <script src="src/assets/Js/Services/task-services.js" defer></script>
+    <script src="src/assets/Js/Main/dark-mode-settings.js" defer></script>
+
 </head>
+
 <body>
     <!-- Header -->
     <header class="navbar navbar-dark bg-dark px-2">
-        <div class="user__loggade">
+        <div class="user__loggade text-light">
             <p>Olá, <span id="userLoggadeName"></span></p>
         </div>
-        <div class="logout__button">
+        <div class="logout__button d-flex p-0 m-0">
+            <input type="checkbox" class="dark-mod-toggle p-0 m-0" id="dark-mode-toggle">
+            <label class="label-dark-mode align-self-start p-0 m-0" for="dark-mode-toggle"></label>
             <button onclick="userLogout()" class="btn btn-dark">Sair</button>
         </div>
-    </header>    
+    </header>
     <!-- Main -->
     <main class="d-flex flex-column main__container gap-5 mt-5">
         <section class="d-flex flex-column justify-content-center align-items-center task__form">
-            <h1 class=" h1 text-center text-dark">Gerenciador de tarefas</h1>
+            <h1 class=" h1 text-center">Gerenciador de tarefas</h1>
             <div class="container__form">
                 <form id="task__form-create" class="d-flex flex-column aling-items-center task__form">
                     <div class="form-group task__form-item">
@@ -70,15 +76,15 @@
     <!-- Footer -->
     <footer class="container bottom-0 d-flex justify-content-between py-3 my-4 border-top">
         <div class=" d-flex align-items-center">
-            <span class="mb-3  text-body-secondary lh-sm-1">© 2023 Marcus Vogado - Ímã Tech SharpCorders - MXM
+            <span class="mb-3  lh-sm-1">© 2023 Marcus Vogado - Ímã Tech SharpCorders - MXM
                 Sistemas</span>
         </div>
         <ul class="nav gap-1 flex-nowrap">
-            <li class="ms-3"><a class="text-body-secondary" href="https://www.linkedin.com/in/marcus-vogado/"
+            <li class="ms-3"><a class="" href="https://www.linkedin.com/in/marcus-vogado/"
                     target="_blank"><i class="bi-linkedin"></i></a></li>
-            <li class="ms-3"><a class="text-body-secondary" href="https://github.com/marcusvogado" target="_blank"><i
+            <li class="ms-3"><a class="" href="https://github.com/marcusvogado" target="_blank"><i
                         class="bi-github"></i></use></svg></a></li>
-            <li class="ms-3"><a class="text-body-secondary" href="https://www.instagram.com/marcus.vogado/"
+            <li class="ms-3"><a class="" href="https://www.instagram.com/marcus.vogado/"
                     target="_blank"><i class="bi-instagram"></i></use></svg></a></use></svg></a></li>
         </ul>
     </footer>
